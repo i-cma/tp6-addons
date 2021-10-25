@@ -1,0 +1,28 @@
+<?php
+declare (strict_types = 1);
+
+namespace addons\{%app%};
+
+use think\Addons;
+
+class Init extends Addons
+{
+    public function admin()
+    {
+        //后台入口
+        return '这是后台管理入口';
+    }
+
+    public function index()
+    {
+        //前台入口
+        return '这是前台管理入口';
+    }
+
+    public function api()
+    {
+        //API入口
+        return '这是API管理入口';
+    }
+
+}

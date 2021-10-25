@@ -1,0 +1,58 @@
+<?php
+
+return [
+    'index' => [
+        'name' => '一级菜单',
+        'icon' => 'icon-home',
+        'index' => 'admin/index/index',
+    ],
+    'two' => [
+        'name' => '二级菜单',
+        'icon' => 'icon-cma',
+        'index' => 'admin/two/index',
+        'submenu' => [
+            [
+                'name' => '二级子菜单',
+                'index' => 'admin/two/index',
+                'uris' => [
+                    'admin/two/index',
+                    'admin/two/add',
+                    'admin/two/edit',
+                    'admin/two/delete',
+                ],
+            ],
+        ]
+    ],
+    'three' => [
+        'name' => '三级菜单',
+        'icon' => 'icon-cma',
+        'index' => 'admin/three/index',
+        'submenu' => [
+            [
+                'name' => '二级菜单',
+                'index' => 'admin/three/index',
+                'uris' => [
+                    'admin/three/index',
+                    'admin/three/add',
+                    'admin/three/edit',
+                    'admin/three/delete',
+                ],
+            ],
+            [
+                'name' => '二级菜单',
+                'submenu' => [
+                    [
+                        'name' => '三级菜单',
+                        'index' => 'admin/three.index/index',
+                        'uris' => [
+                            'admin/three.index/index',
+                            'admin/three.index/add',
+                            'admin/three.index/edit',
+                            'admin/three.index/delete',
+                        ],
+                    ],
+                ]
+            ]
+        ]
+    ],
+];

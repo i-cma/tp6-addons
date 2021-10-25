@@ -1,0 +1,38 @@
+<?php
+
+return [
+    'info' => [
+        'name'        => '示例模块名称:{%identifie%}',
+        'identifie'   => '{%identifie%}',
+        'version'     => '1.0.0',
+        'ability'     => '这里是模块介绍',
+        'description' => '这里是模块描述',
+        'author'      => '畅码科技',
+        'url'         => 'https://www.changma.cc/',
+    ],
+    'platform' => [
+        'mp'    => {%mp%}, //公众号
+        'wxapp' => {%wxapp%}, //微信小程序
+        'web'   => {%web%}, //pc+h5网站
+        'app'   => {%app%}, //APP
+    ],
+    //当 platform.mp == true 时有效
+    'mp_msg' => [
+        'subscribes' => [
+            'image',
+            'subscribe',
+            'unsubscribe',
+            'event',
+            'click',
+            'view',
+        ],
+        'handles' => [
+            'image',
+            'subscribe',
+            'unsubscribe',
+            'event',
+            'click',
+            'view',
+        ]
+    ]
+];
