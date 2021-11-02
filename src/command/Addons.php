@@ -224,6 +224,12 @@ EOT
 
             $to = $this->basePath . ($app ? $app . DIRECTORY_SEPARATOR : '') . 'README.md';
             copy($from , $to);
+
+            //创建图标
+            $from = __DIR__ . DIRECTORY_SEPARATOR . 'icon.png';
+
+            $to = $this->basePath . ($app ? $app . DIRECTORY_SEPARATOR : '') . 'icon.png';
+            copy($from , $to);
         }
     }
 
