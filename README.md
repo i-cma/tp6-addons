@@ -47,3 +47,9 @@ www  WEB部署目录（或者子目录）
 
 ## uninstall.sql 安装SQL文件
 卸载应用所需SQL文件，文件为标准SQL语句，单独语句用英文分号`;`分割。
+
+## 注册事件 / 钩子
++ AddonsBegin ： 应用开始时
++ AddonInit   ： 应用初始化
++ AddonsActionBegin ： 应用方法开始时
++ AddonMiddleware   ： 应用中间件路由

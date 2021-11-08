@@ -143,6 +143,20 @@ EOT
      */
     protected function buildHello(string $app , string $namespace): void
     {
+//        $suffix   = $this->app->config->get('route.controller_suffix') ? 'Controller' : '';
+//
+//        foreach (['admin' => '后台' ,'index' => '前台' ,'api' => '接口' ,] as $key => $item){
+//            $filename = $this->basePath . ($app ? $app . DIRECTORY_SEPARATOR : '') . 'controller' . DIRECTORY_SEPARATOR . $key . DIRECTORY_SEPARATOR . 'Index' . $suffix . '.php';
+//
+//            if (!is_file($filename)) {
+//                $content = file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . 'stubs' . DIRECTORY_SEPARATOR . 'controller.stub');
+//                $content = str_replace(['{%name%}', '{%app%}', '{%layer%}', '{%suffix%}'], [$item, $namespace, 'controller\\' . $key, $suffix], $content);
+//                $this->checkDirBuild(dirname($filename));
+//
+//                file_put_contents($filename, $content);
+//            }
+//        }
+
         $suffix   = $this->app->config->get('route.controller_suffix') ? 'Controller' : '';
 
         $filename = $this->basePath . ($app ? $app . DIRECTORY_SEPARATOR : '') . 'controller' . DIRECTORY_SEPARATOR . 'Index' . $suffix . '.php';
