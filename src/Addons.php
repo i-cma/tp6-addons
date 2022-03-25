@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace think;
 
-use \think\facade\Config;
-
 abstract class Addons
 {
     // app 容器

@@ -43,8 +43,8 @@ EOT
         }
 
         $list = [
-//            '__dir__' => ['controller.admin', 'controller.index', 'controller.api', 'model', 'view'],
-            '__dir__' => ['controller', 'model', 'view'],
+            '__dir__' => ['controller.admin', 'controller.index', 'controller.api', 'model', 'view'],
+//            '__dir__' => ['controller', 'model', 'view'],
         ];
 
         $this->buildApp($app, $list);
@@ -143,41 +143,46 @@ EOT
      */
     protected function buildHello(string $app , string $namespace): void
     {
-//        $suffix   = $this->app->config->get('route.controller_suffix') ? 'Controller' : '';
-//
-//        foreach (['admin' => '后台' ,'index' => '前台' ,'api' => '接口' ,] as $key => $item){
-//            $filename = $this->basePath . ($app ? $app . DIRECTORY_SEPARATOR : '') . 'controller' . DIRECTORY_SEPARATOR . $key . DIRECTORY_SEPARATOR . 'Index' . $suffix . '.php';
-//
-//            if (!is_file($filename)) {
-//                $content = file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . 'stubs' . DIRECTORY_SEPARATOR . 'controller.stub');
-//                $content = str_replace(['{%name%}', '{%app%}', '{%layer%}', '{%suffix%}'], [$item, $namespace, 'controller\\' . $key, $suffix], $content);
-//                $this->checkDirBuild(dirname($filename));
-//
-//                file_put_contents($filename, $content);
-//            }
-//        }
-
         $suffix   = $this->app->config->get('route.controller_suffix') ? 'Controller' : '';
 
-        $filename = $this->basePath . ($app ? $app . DIRECTORY_SEPARATOR : '') . 'controller' . DIRECTORY_SEPARATOR . 'Index' . $suffix . '.php';
+        foreach (['admin' => '后台' ,'index' => '前台' ,'api' => '接口' ,] as $key => $item){
+            $filename = $this->basePath . ($app ? $app . DIRECTORY_SEPARATOR : '') . 'controller' . DIRECTORY_SEPARATOR . $key . DIRECTORY_SEPARATOR . 'Index' . $suffix . '.php';
 
-        if (!is_file($filename)) {
-            $content = file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . 'stubs' . DIRECTORY_SEPARATOR . 'controller.stub');
-            $content = str_replace(['{%name%}', '{%app%}', '{%layer%}', '{%suffix%}'], ['默认', $namespace, 'controller', $suffix], $content);
-            $this->checkDirBuild(dirname($filename));
+            if (!is_file($filename)) {
+                $base = [
+                    'admin' => 'AdminAddon',
+                    'index' => 'SiteAddon',
+                    'api'   => 'ApiAddon',
+                ];
+                $content = file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . 'stubs' . DIRECTORY_SEPARATOR . 'controller.stub');
+                $content = str_replace(['{%name%}', '{%app%}', '{%layer%}', '{%suffix%}', '{%base%}'], [$item, $namespace, 'controller\\' . $key, $suffix , $base[$key]], $content);
+                $this->checkDirBuild(dirname($filename));
 
-            file_put_contents($filename, $content);
+                file_put_contents($filename, $content);
+            }
         }
+
+//        $suffix   = $this->app->config->get('route.controller_suffix') ? 'Controller' : '';
+//
+//        $filename = $this->basePath . ($app ? $app . DIRECTORY_SEPARATOR : '') . 'controller' . DIRECTORY_SEPARATOR . 'Index' . $suffix . '.php';
+//
+//        if (!is_file($filename)) {
+//            $content = file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . 'stubs' . DIRECTORY_SEPARATOR . 'controller.stub');
+//            $content = str_replace(['{%name%}', '{%app%}', '{%layer%}', '{%suffix%}'], ['默认', $namespace, 'controller', $suffix], $content);
+//            $this->checkDirBuild(dirname($filename));
+//
+//            file_put_contents($filename, $content);
+//        }
     }
 
     /**
      * 创建应用的配置页面
      * @access protected
-     * @param  string $app 目录
-     * @param  string $namespace 类库命名空间
+     * @param string $app 目录
+     * @param string $platform 类库命名空间
      * @return void
      */
-    protected function buildConfig(string $app, $platform = ''): void
+    protected function buildConfig(string $app, string $platform = ''): void
     {
         $appPath = $this->basePath . ($app ? $app . DIRECTORY_SEPARATOR : '');
 

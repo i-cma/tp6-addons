@@ -7,22 +7,15 @@ use think\Addons;
 
 class Init extends Addons
 {
-    public function admin()
+
+    public function __construct(App $app)
     {
-        //后台入口
-        return '这是后台管理入口';
+        parent::__construct($app);
     }
 
-    public function index()
+    public function test()
     {
-        //前台入口
-        return '这是前台管理入口';
-    }
-
-    public function api()
-    {
-        //API入口
-        return '这是API管理入口';
+        // test code
     }
 
 }

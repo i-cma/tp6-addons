@@ -3,7 +3,10 @@ declare (strict_types = 1);
 
 namespace {%app%}\{%layer%};
 
-class Index{%suffix%}
+
+use app\common\Addon\{%base%} as Base;
+
+class Index{%suffix%} extends Base
 {
     public function index()
     {
