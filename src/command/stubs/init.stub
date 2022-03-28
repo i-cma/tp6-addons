@@ -4,6 +4,7 @@ declare (strict_types = 1);
 namespace addons\{%app%};
 
 use think\Addons;
+use think\App;
 
 class Init extends Addons
 {

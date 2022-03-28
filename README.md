@@ -4,6 +4,9 @@
 www  WEB部署目录（或者子目录）
 ├─addons           插件目录
 │  ├─controller    控制器目录
+│  │  ├─admin      后台控制器目录
+│  │  ├─api        API控制器目录
+│  │  ├─index      前台控制器目录
 │  ├─model         模型目录
 │  ├─view          应用前端模板文件
 │  ├─ ...          更多类库目录
